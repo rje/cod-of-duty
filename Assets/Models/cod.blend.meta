@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 709d3511c1bc6444f9aa91a630e9f6ee
+guid: a057dafd153b44e5b8a3edbca6358463
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cylinder
+    100002: Cube.003
     400000: //RootNode
-    400002: Cylinder
-    2300000: Cylinder
-    3300000: Cylinder
-    4300000: Cylinder
-    6400000: Cylinder
+    400002: Cube.003
+    2300000: Cube.003
+    3300000: Cube.003
+    4300000: Cube.003
+    6400000: Cube.003
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -40,7 +40,7 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
   tangentSpace:
-    normalSmoothAngle: 20
+    normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
     normalImportMode: 1
     tangentImportMode: 1

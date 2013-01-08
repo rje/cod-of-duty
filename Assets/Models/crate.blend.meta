@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 709d3511c1bc6444f9aa91a630e9f6ee
+guid: 57a40e9d5801d48ef8de715aa26b89ae
 ModelImporter:
   serializedVersion: 15
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Cylinder
+    100002: Cube
     400000: //RootNode
-    400002: Cylinder
-    2300000: Cylinder
-    3300000: Cylinder
-    4300000: Cylinder
-    6400000: Cylinder
+    400002: Cube
+    2300000: Cube
+    3300000: Cube
+    4300000: Cube
+    6400000: Cube
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -30,7 +30,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -40,9 +40,9 @@ ModelImporter:
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
   tangentSpace:
-    normalSmoothAngle: 20
+    normalSmoothAngle: 60
     splitTangentsAcrossUV: 1
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0

@@ -1,0 +1,18 @@
+v1 TODO:
+* Tree
+* Machine Gun
+* Rocket Launcher
+* Building
+* Swimming Fish
+* Fish Counter HUD
+* Level Layout
+* XP
+* Level Up
+* Main Menu
+
+v1 Done:
+* Pistol
+* Cod
+* Barrel
+* Crate
+* Reticle
