@@ -27,7 +27,6 @@ public class Gun : MonoBehaviour {
 		Physics.Raycast (ray, out rh, float.MaxValue);
 		if(rh.collider != null) {
 			dest = rh.point;
-			Debug.Log (rh.collider.name);
 			target = rh.collider.gameObject.GetComponent<Shootable>();
 		}
 		else {

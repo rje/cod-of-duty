@@ -2,7 +2,6 @@ v1 TODO:
 * Tree
 * Machine Gun
 * Rocket Launcher
-* Building
 * Swimming Fish
 * Fish Counter HUD
 * Level Layout
@@ -16,3 +15,4 @@ v1 Done:
 * Barrel
 * Crate
 * Reticle
+* Building

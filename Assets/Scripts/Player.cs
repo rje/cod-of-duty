@@ -46,7 +46,9 @@ public class Player : MonoBehaviour {
 	
 	void UpdateRotation(Vector3 delta) {
 		var angles = transform.rotation.eulerAngles;
-		angles.y += delta.x;
+		var amt = delta.x;
+		if(amt < 5) amt /= 3.0f;
+		angles.y += amt;
 		transform.rotation = Quaternion.Euler(angles);
 	}
 	

@@ -2,3 +2,4 @@ Library
 Temp
 osx
 *.pidb
+deploy.sh

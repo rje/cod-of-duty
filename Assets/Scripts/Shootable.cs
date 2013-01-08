@@ -3,11 +3,9 @@ using System.Collections;
 
 public class Shootable : MonoBehaviour {
 	
-	public void ShotBy(Player p) {
-		Die();
-	}
+	public GameObject m_messageTarget;
 	
-	void Die() {
-		Destroy (gameObject);
+	public void ShotBy(Player p) {
+		m_messageTarget.SendMessage("OnShotBy", p, SendMessageOptions.RequireReceiver);
 	}
 }
