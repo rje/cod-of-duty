@@ -10,6 +10,8 @@ public class Player : MonoBehaviour {
 	public float m_headMin;
 	public float m_headMax;
 	
+	public float m_mouseSensitivity;
+	
 	Vector3 m_lastMousePosition;
 	float m_currentHeadAngle;
 
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour {
 	void UpdateRotation(Vector3 delta) {
 		var angles = transform.rotation.eulerAngles;
 		var amt = delta.x;
-		if(amt < 5) amt /= 3.0f;
+		amt /= m_mouseSensitivity;
 		angles.y += amt;
 		transform.rotation = Quaternion.Euler(angles);
 	}

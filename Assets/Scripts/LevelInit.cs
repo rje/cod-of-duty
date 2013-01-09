@@ -10,7 +10,12 @@ public class LevelInit : MonoBehaviour {
 	public List<Barrel> m_barrels;
 	public List<GameObject> m_fish;
 	
+	public HUD m_hud;
+	
+	float m_time;
+	
 	void Start() {
+		m_time = 0.0f;
 		m_barrels = new List<Barrel>();
 		m_fish = new List<GameObject>();
 		for(var i = 0; i < m_numBarrels; i++) {
@@ -22,13 +27,16 @@ public class LevelInit : MonoBehaviour {
 	
 	public void AddFish(GameObject fish) {
 		m_fish.Add (fish);
+		m_hud.SetRemainingCount(m_fish.Count);
 	}
 	
 	public void RemoveFish(GameObject fish) {
 		m_fish.Remove(fish);
+		m_hud.SetRemainingCount(m_fish.Count);
 	}
 	
-	void OnGUI() {
-		GUI.Label (new Rect(10, 10, 200, 50), "Cod remaining: " + m_fish.Count);
+	void Update() {
+		m_time += Time.deltaTime;
+		m_hud.SetTimeLabel(m_time);
 	}
 }

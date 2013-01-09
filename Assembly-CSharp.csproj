@@ -47,6 +47,7 @@
      <Compile Include="Assets\Scripts\Barrel.cs" />
      <Compile Include="Assets\Scripts\Cod.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
+     <Compile Include="Assets\Scripts\HUD.cs" />
      <Compile Include="Assets\Scripts\Init.cs" />
      <Compile Include="Assets\Scripts\LevelInit.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

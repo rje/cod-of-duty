@@ -20,11 +20,8 @@ public class Barrel : MonoBehaviour {
 	void GenerateFish() {
 		var go = (GameObject)GameObject.Instantiate(m_fishPrefab);
 		go.transform.parent = transform;
-		go.transform.localPosition = new Vector3(
-			Random.Range (m_genMin.x, m_genMax.x), 
-			Random.Range (m_genMin.y, m_genMax.y),
-			Random.Range (m_genMin.z, m_genMax.z));
-		go.transform.localRotation = Quaternion.Euler(0, Random.Range (0, 360), 0);
+		go.transform.localPosition = new Vector3(0, Random.Range (m_genMin.y, m_genMax.y), 0);
+		go.transform.localRotation = Quaternion.identity;
 		m_fish.Add (go);
 	}
 }
