@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: blood_particle
-  m_Shader: {fileID: 203, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: wire
+  m_Shader: {fileID: 200, guid: 0000000000000000e000000000000000, type: 0}
   m_SavedProperties:
     serializedVersion: 2
     m_TexEnvs:
@@ -15,7 +15,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: eb5553d068faa4404bc5318dd069c5ef, type: 3}
+          m_Texture: {fileID: 2800000, guid: 93b0e786f107b4960a618a9c34e9e3d0, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -27,8 +27,8 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .800000012, g: .800000012, b: .800000012, a: 1}
       data:
         first:
           name: _TintColor
-        second: {r: .776119411, g: .776119411, b: .776119411, a: .772549033}
+        second: {r: .477611959, g: .477611959, b: .477611959, a: .168627456}

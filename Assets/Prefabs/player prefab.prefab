@@ -268,7 +268,7 @@ MonoBehaviour:
   m_head: {fileID: 400000}
   m_headMin: -60
   m_headMax: 60
-  m_mouseSensitivity: 3
+  m_mouseSensitivity: .5
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -282,6 +282,8 @@ MonoBehaviour:
   m_player: {fileID: 11400000}
   m_muzzleExit: {fileID: 400010}
   m_bulletPrefab: {fileID: 100000, guid: 4e4b9f7692ba14344aa4207cac679bf6, type: 2}
+  m_shotDelay: 0
+  m_isAutomatic: 1
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

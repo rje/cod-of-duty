@@ -7,7 +7,7 @@ public class Cod : MonoBehaviour {
 	public float m_minSpeed;
 	public float m_maxSpeed;
 	
-	public ParticleSystem[] m_emitters;
+	public ParticleEmitter[] m_emitters;
 	
 	float m_speed;
 	float m_angle;
@@ -35,9 +35,9 @@ public class Cod : MonoBehaviour {
 		var level = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelInit>();
 		level.RemoveFish(gameObject);
 		foreach(var emitter in m_emitters) {
-			emitter.Emit (30);
+			emitter.Emit (Random.Range (30, 60));
 			emitter.transform.parent = null;
-			Destroy (emitter, 4.0f);
+			Destroy (emitter, 2.5f);
 		}
 		Destroy (gameObject);
 	}

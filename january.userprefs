@@ -1,14 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelInit.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Init.cs">
     <Files>
       <File FileName="Assets/Scripts/LevelInit.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Barrel.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Shootable.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Cod.cs" Line="19" Column="30" />
+      <File FileName="Assets/Scripts/Cod.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Gun.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.cs" Line="13" Column="34" />
+      <File FileName="Assets/Scripts/Player.cs" Line="28" Column="29" />
       <File FileName="Assets/TODO.txt" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HUD.cs" Line="1" Column="1" />
+      <File FileName="Assets/Shaders/MainMenuCod.shader" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Button.cs" Line="8" Column="33" />
+      <File FileName="Assets/Scripts/Init.cs" Line="9" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

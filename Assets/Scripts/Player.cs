@@ -12,12 +12,10 @@ public class Player : MonoBehaviour {
 	
 	public float m_mouseSensitivity;
 	
-	Vector3 m_lastMousePosition;
 	float m_currentHeadAngle;
 
 	// Use this for initialization
 	void Start () {
-		m_lastMousePosition = Input.mousePosition;
 		m_currentHeadAngle = 0;
 	}
 	
@@ -25,11 +23,9 @@ public class Player : MonoBehaviour {
 	void Update () {
 		UpdatePosition();
 		
-		var newMousePos = Input.mousePosition;
-		var delta = newMousePos - m_lastMousePosition;
+		var delta = new Vector3(Input.GetAxisRaw ("Mouse X"), Input.GetAxisRaw ("Mouse Y"), 0);
 		UpdateRotation(delta);
 		UpdateHeadRotation(delta);
-		m_lastMousePosition = newMousePos;
 	}
 	
 	void UpdatePosition() {
@@ -56,7 +52,7 @@ public class Player : MonoBehaviour {
 	
 	void UpdateHeadRotation(Vector3 delta) {
 		var headAngles = m_head.localRotation.eulerAngles;
-		m_currentHeadAngle -= delta.y;
+		m_currentHeadAngle -= delta.y / m_mouseSensitivity;
 		if(m_currentHeadAngle < m_headMin) {
 			m_currentHeadAngle = m_headMin;
 		}
