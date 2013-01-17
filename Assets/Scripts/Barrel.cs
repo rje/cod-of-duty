@@ -24,4 +24,14 @@ public class Barrel : MonoBehaviour {
 		go.transform.localRotation = Quaternion.identity;
 		m_fish.Add (go);
 	}
+	
+	public void Explode(Player p) {
+		for(var i = m_fish.Count - 1; i >= 0; i--) {
+			var fishGO = m_fish[i];
+			var shootable = fishGO.GetComponentInChildren<Shootable>();
+			shootable.ShotBy (p);
+			m_fish.Remove(fishGO);
+		}
+		Destroy (gameObject, 0.3f);
+	}
 }

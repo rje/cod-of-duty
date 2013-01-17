@@ -1,12 +1,15 @@
 v1 TODO:
-* Machine Gun
-* Rocket Launcher
-* Level Layout
+* Ammo
+* Reload
 * XP
-* Level Up
 * Main Menu
+* Level Layout
+* Level Up
 
 v1 Done:
+* Rocket Launcher
+* Rocket
+* Machine Gun
 * Tree
 * Pistol
 * Cod

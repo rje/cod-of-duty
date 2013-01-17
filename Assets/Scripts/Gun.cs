@@ -9,6 +9,7 @@ public class Gun : MonoBehaviour {
 	
 	public float m_shotDelay;
 	public bool m_isAutomatic;
+	public bool m_launchesProjectiles;
 	
 	bool m_firing = false;
 	bool m_hasFired = false;
@@ -20,11 +21,35 @@ public class Gun : MonoBehaviour {
 	
 	void CheckForFire() {
 		if(Input.GetButtonDown("Fire1") || Input.GetAxis ("Fire1") > 0.5f) {
-			StartCoroutine(Fire ());
+			if(m_launchesProjectiles) {
+				StartCoroutine(Launch());
+			}
+			else {
+				StartCoroutine(Fire());
+			}
 		}
 		else {
 			m_hasFired = false;
 		}
+	}
+	
+	IEnumerator Launch() {
+		if(m_firing || (m_hasFired && !m_isAutomatic)) {
+			return false;
+		}
+		m_firing = true;
+		
+		
+		var bullet = (GameObject)GameObject.Instantiate(m_bulletPrefab);
+		bullet.transform.position = m_muzzleExit.transform.position;
+		bullet.transform.rotation = m_muzzleExit.transform.rotation;
+		bullet.GetComponent<Rocket>().m_player = m_player;
+		
+		if(m_shotDelay > 0) {
+			yield return new WaitForSeconds(m_shotDelay);
+		}
+		
+		m_firing = false;
 	}
 	
 	IEnumerator Fire() {

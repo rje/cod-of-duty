@@ -4,3 +4,4 @@ osx
 *.pidb
 deploy.sh
 january
+*.apk
