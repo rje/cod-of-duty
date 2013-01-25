@@ -2,9 +2,13 @@ using UnityEngine;
 using System.Collections;
 
 public class Init : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+	
+	public static void ShowCursor() {
+		Screen.showCursor = true;
+		Screen.lockCursor = false;
+	}
+	
+	public static void HideCursor() {
 		Screen.showCursor = false;
 		Screen.lockCursor = true;
 	}

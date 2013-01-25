@@ -31,23 +31,28 @@ public class Rocket : MonoBehaviour {
 	void Explode() {
 		var explosion = (GameObject)GameObject.Instantiate(m_explosionPrefab);
 		explosion.transform.position = transform.position;
-		DestroyBarrelsInArea(transform.position);
+		
+		var colliders = Physics.OverlapSphere(transform.position, m_explosionRadius);
+		var level = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelInit>();
+		var barrels = level.m_barrels;
+		
+		foreach(var collider in colliders) {
+			var rootGO = collider.gameObject;
+			while(rootGO.transform.parent != null) {
+				rootGO = rootGO.transform.parent.gameObject;
+			}
+			var barrel = rootGO.GetComponent<Barrel>();
+			if(barrel != null) {
+				barrel.Explode(m_player.gameObject);
+				barrels.Remove(barrel);
+			}
+			var deathCod = rootGO.GetComponent<DeathCod>();
+			if(deathCod != null) {
+				rootGO.GetComponent<Shootable>().ShotBy(m_player.gameObject, 5);
+			}
+		}
 		var emitter = explosion.GetComponentInChildren<ParticleEmitter>();
 		emitter.Emit (300);
 		Destroy (gameObject);
-	}
-	
-	void DestroyBarrelsInArea(Vector3 pos) {
-		var rangeSq = m_explosionRadius * m_explosionRadius;
-		var level = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelInit>();
-		var barrels = level.m_barrels;
-		for(var i = barrels.Count - 1; i >= 0; i--) {
-			var barrel = level.m_barrels[i];
-			var barrelDistSq = (barrel.transform.position - pos).sqrMagnitude;
-			if(barrelDistSq <= rangeSq) {
-				barrel.Explode(m_player);
-				barrels.Remove(barrel);
-			}
-		}
 	}
 }

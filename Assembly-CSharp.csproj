@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_1;UNITY_4_0;UNITY_STANDALONE_OSX;ENABLE_PROFILER;UNITY_EDITOR</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -47,13 +47,36 @@
      <Compile Include="Assets\Scripts\Barrel.cs" />
      <Compile Include="Assets\Scripts\Button.cs" />
      <Compile Include="Assets\Scripts\Cod.cs" />
+     <Compile Include="Assets\Scripts\DeathCod.cs" />
+     <Compile Include="Assets\Scripts\FacePlayer.cs" />
+     <Compile Include="Assets\Scripts\FadeOnPlayerDistance.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\HUD.cs" />
+     <Compile Include="Assets\Scripts\HealthEffect.cs" />
      <Compile Include="Assets\Scripts\Init.cs" />
+     <Compile Include="Assets\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Scripts\Level 01\Level01DeathSquad.cs" />
+     <Compile Include="Assets\Scripts\Level 01\Level01DieStep.cs" />
+     <Compile Include="Assets\Scripts\Level 01\Level01KillStep.cs" />
+     <Compile Include="Assets\Scripts\Level 01\Level01ReportStep.cs" />
+     <Compile Include="Assets\Scripts\Level 01\Level01ShowReportStory.cs" />
+     <Compile Include="Assets\Scripts\Level 02\Level02DieStep.cs" />
+     <Compile Include="Assets\Scripts\Level 02\Level02GetPlansStep.cs" />
+     <Compile Include="Assets\Scripts\Level 02\Level02KillStep1.cs" />
+     <Compile Include="Assets\Scripts\Level 02\Level02KillStep2.cs" />
+     <Compile Include="Assets\Scripts\Level 02\Level02ShowPlansStory.cs" />
+     <Compile Include="Assets\Scripts\Level 02\Level2OpenDoors.cs" />
      <Compile Include="Assets\Scripts\LevelInit.cs" />
+     <Compile Include="Assets\Scripts\Loot.cs" />
+     <Compile Include="Assets\Scripts\LootGenerator.cs" />
+     <Compile Include="Assets\Scripts\MessageButton.cs" />
+     <Compile Include="Assets\Scripts\MissionTracker.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Rocket.cs" />
      <Compile Include="Assets\Scripts\Shootable.cs" />
+     <Compile Include="Assets\Scripts\SpawnArea.cs" />
+     <Compile Include="Assets\Scripts\StoryHUD.cs" />
+     <Compile Include="Assets\Scripts\UseTrigger.cs" />
      <None Include="Assets\TODO.txt" />
      <None Include="Assets\Shaders\MainMenuCod.shader" />
   </ItemGroup>

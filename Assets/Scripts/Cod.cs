@@ -7,6 +7,8 @@ public class Cod : MonoBehaviour {
 	public float m_minSpeed;
 	public float m_maxSpeed;
 	
+	public Barrel m_barrel;
+	
 	public ParticleEmitter[] m_emitters;
 	
 	float m_speed;
@@ -14,12 +16,12 @@ public class Cod : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		var level = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelInit>();
-		level.AddFish(gameObject);
 		m_child.transform.localPosition = new Vector3(Random.Range (0.1f, 0.3f), 0, 0);
 		m_speed = Random.Range (m_minSpeed, m_maxSpeed);
 		m_angle = Random.Range (0.0f, 360.0f);
 		transform.localRotation = Quaternion.Euler(0, m_angle, 0);
+		var level = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelInit>();
+		level.AddFish(gameObject);
 	}
 	
 	// Update is called once per frame
@@ -31,7 +33,7 @@ public class Cod : MonoBehaviour {
 		transform.localRotation = Quaternion.Euler(0, m_angle, 0);
 	}
 	
-	void OnShotBy(Player p) {
+	void OnShotBy(ShotInfo si) {
 		var level = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelInit>();
 		level.RemoveFish(gameObject);
 		foreach(var emitter in m_emitters) {
@@ -39,6 +41,19 @@ public class Cod : MonoBehaviour {
 			emitter.transform.parent = null;
 			Destroy (emitter, 2.5f);
 		}
+		m_barrel.RemoveFish(gameObject);
+		
+		GenerateLoot();
+		
 		Destroy (gameObject);
+	}
+	
+	void GenerateLoot() {
+		var toSpawn = LootGenerator.GetLoot();
+		if(toSpawn != null) {
+			var spawned = (GameObject)GameObject.Instantiate(toSpawn);
+			spawned.transform.position = transform.position + new Vector3(Random.Range (-2, 2), 0, Random.Range (-2, 2));
+			spawned.GetComponent<Loot>().ApplyForce();
+		}
 	}
 }

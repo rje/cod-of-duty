@@ -11,34 +11,43 @@ public class Gun : MonoBehaviour {
 	public bool m_isAutomatic;
 	public bool m_launchesProjectiles;
 	
-	bool m_firing = false;
-	bool m_hasFired = false;
+	public int m_ammoCapacity;
+	public int m_currentAmmo;
+	public int m_damage;
 	
-	// Update is called once per frame
-	void Update () {
-		CheckForFire();
+	bool m_firing = false;
+	public bool m_hasFired = false;
+	bool m_reloading = false;
+	
+	Vector3 m_defaultPosition;
+	Vector3 m_reloadPosition;
+	
+	void Start() {
+		m_currentAmmo = m_ammoCapacity;
+		m_defaultPosition = transform.localPosition;
+		m_reloadPosition = new Vector3(m_defaultPosition.x, m_defaultPosition.y - 0.5f, m_defaultPosition.z);
 	}
 	
-	void CheckForFire() {
-		if(Input.GetButtonDown("Fire1") || Input.GetAxis ("Fire1") > 0.5f) {
-			if(m_launchesProjectiles) {
-				StartCoroutine(Launch());
-			}
-			else {
-				StartCoroutine(Fire());
-			}
+	public void TryToReload() {
+		StartCoroutine(Reload());
+	}
+	
+	public void TryToFire(Ray ray) {
+		if(m_launchesProjectiles) {
+			StartCoroutine(Launch());
 		}
 		else {
-			m_hasFired = false;
+			StartCoroutine(Fire(ray));
 		}
 	}
 	
 	IEnumerator Launch() {
-		if(m_firing || (m_hasFired && !m_isAutomatic)) {
+		if(m_firing || (m_hasFired && !m_isAutomatic) || m_reloading || !HasAmmo()) {
 			return false;
 		}
 		m_firing = true;
-		
+		m_hasFired = true;
+		DecrementAmmo();
 		
 		var bullet = (GameObject)GameObject.Instantiate(m_bulletPrefab);
 		bullet.transform.position = m_muzzleExit.transform.position;
@@ -52,14 +61,13 @@ public class Gun : MonoBehaviour {
 		m_firing = false;
 	}
 	
-	IEnumerator Fire() {
-		if(m_firing || (m_hasFired && !m_isAutomatic)) {
+	IEnumerator Fire(Ray ray) {
+		if(m_firing || (m_hasFired && !m_isAutomatic) || m_reloading || !HasAmmo()) {
 			return false;
 		}
 		m_firing = true;
 		m_hasFired = true;
-		var cam = Camera.main;
-		var ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2.0f, Screen.height / 2.0f, 0.0f));
+		DecrementAmmo();
 		RaycastHit rh;
 		Vector3 dest;
 		Shootable target = null;
@@ -82,7 +90,7 @@ public class Gun : MonoBehaviour {
 		yield return new WaitForSeconds(0.1f);
 		
 		if(target != null) {
-			target.ShotBy(m_player);
+			target.ShotBy(m_player == null ? gameObject : m_player.gameObject, m_damage);
 		}
 		
 		Destroy(bullet);
@@ -92,5 +100,28 @@ public class Gun : MonoBehaviour {
 		}
 		
 		m_firing = false;
+	}
+	
+	IEnumerator Reload() {
+		if(m_reloading) {
+			yield break;
+		}
+		m_reloading = true;
+		transform.localPosition = m_reloadPosition;
+		yield return new WaitForSeconds(0.33f);
+		m_player.m_inventory.ReloadCurrentGun();
+		transform.localPosition = m_defaultPosition;
+		m_reloading = false;
+	}
+	
+	bool HasAmmo() {
+		return m_currentAmmo > 0;
+	}
+	
+	void DecrementAmmo() {
+		m_currentAmmo--;
+		if(m_currentAmmo < 0) {
+			m_currentAmmo = 0;
+		}
 	}
 }

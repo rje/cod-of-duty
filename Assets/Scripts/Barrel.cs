@@ -19,19 +19,24 @@ public class Barrel : MonoBehaviour {
 	
 	void GenerateFish() {
 		var go = (GameObject)GameObject.Instantiate(m_fishPrefab);
+		go.GetComponent<Cod>().m_barrel = this;
 		go.transform.parent = transform;
 		go.transform.localPosition = new Vector3(0, Random.Range (m_genMin.y, m_genMax.y), 0);
 		go.transform.localRotation = Quaternion.identity;
 		m_fish.Add (go);
 	}
 	
-	public void Explode(Player p) {
+	public void Explode(GameObject shooter) {
 		for(var i = m_fish.Count - 1; i >= 0; i--) {
 			var fishGO = m_fish[i];
 			var shootable = fishGO.GetComponentInChildren<Shootable>();
-			shootable.ShotBy (p);
-			m_fish.Remove(fishGO);
+			shootable.ShotBy (shooter, 5);
+			RemoveFish(fishGO);
 		}
 		Destroy (gameObject, 0.3f);
+	}
+	
+	public void RemoveFish(GameObject go) {
+		m_fish.Remove (go);
 	}
 }

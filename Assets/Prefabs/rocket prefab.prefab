@@ -248,7 +248,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2f16933030a094c92a57a4f0c78b3407, type: 3}
   m_Name: 
-  m_force: 500
+  m_force: 700
   m_timer: 5
   m_explosionRadius: 3
   m_explosionPrefab: {fileID: 100002, guid: f2ecaec20f7254160b00c79ff211b482, type: 2}

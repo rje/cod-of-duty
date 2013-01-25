@@ -34,7 +34,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,11 +44,13 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11400008}
   - 54: {fileID: 5400000}
   - 136: {fileID: 13600000}
+  - 114: {fileID: 11400010}
   m_Layer: 0
   m_Name: player prefab
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -180,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100022
 GameObject:
   m_ObjectHideFlags: 1
@@ -227,8 +229,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: -.382683486, z: 0, w: .923879504}
+  m_LocalPosition: {x: 40.9352341, y: 0, z: -42.884037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -363,7 +365,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 19
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_HDR: 0
@@ -481,12 +483,14 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01bdb674bab034431b46d748718889a5, type: 3}
   m_Name: 
-  m_speed: 5
+  m_speed: 6
   m_jumpForce: 300
   m_head: {fileID: 400000}
   m_headMin: -60
   m_headMax: 60
+  m_inventory: {fileID: 11400008}
   m_mouseSensitivity: .5
+  m_pauseInput: 1
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -503,6 +507,9 @@ MonoBehaviour:
   m_shotDelay: 0
   m_isAutomatic: 0
   m_launchesProjectiles: 0
+  m_ammoCapacity: 15
+  m_currentAmmo: 0
+  m_hasFired: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -519,6 +526,9 @@ MonoBehaviour:
   m_shotDelay: .0599999987
   m_isAutomatic: 1
   m_launchesProjectiles: 0
+  m_ammoCapacity: 30
+  m_currentAmmo: 0
+  m_hasFired: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -534,7 +544,46 @@ MonoBehaviour:
   m_bulletPrefab: {fileID: 100004, guid: b910bea1140ef4993baba92ec3156bcd, type: 2}
   m_shotDelay: 2
   m_isAutomatic: 0
-  m_launchesProjectiles: 0
+  m_launchesProjectiles: 1
+  m_ammoCapacity: 3
+  m_currentAmmo: 0
+  m_hasFired: 0
+--- !u!114 &11400008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066c3a9d5ce654841bbb32d0f9fd2504, type: 3}
+  m_Name: 
+  m_allGuns:
+  - m_type: 0
+    m_gunGameObject: {fileID: 100002}
+    m_gun: {fileID: 11400002}
+    m_ammo: -1
+  - m_type: 1
+    m_gunGameObject: {fileID: 100012}
+    m_gun: {fileID: 11400004}
+    m_ammo: 60
+  - m_type: 2
+    m_gunGameObject: {fileID: 100020}
+    m_gun: {fileID: 11400006}
+    m_ammo: 6
+  m_activeGuns: []
+  m_currentIndex: 0
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cca6c746c41a4817841d6a284323763, type: 3}
+  m_Name: 
+  m_messageTarget: {fileID: 100004}
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

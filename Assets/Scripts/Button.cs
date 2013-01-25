@@ -5,6 +5,6 @@ public class Button : MonoBehaviour {
 
 	// Use this for initialization
 	void OnMouseDown() {
-		Application.LoadLevel("test");
+		Application.LoadLevel("level 1");
 	}
 }

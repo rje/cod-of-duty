@@ -10,6 +10,8 @@ public class LevelInit : MonoBehaviour {
 	public List<Barrel> m_barrels;
 	public List<GameObject> m_fish;
 	
+	public SpawnArea[] m_spawns;
+	
 	public HUD m_hud;
 	
 	float m_time;
@@ -18,15 +20,32 @@ public class LevelInit : MonoBehaviour {
 		m_time = 0.0f;
 		m_barrels = new List<Barrel>();
 		m_fish = new List<GameObject>();
-		for(var i = 0; i < m_numBarrels; i++) {
+		SpawnCountInAreas(m_numBarrels, m_spawns);
+	}
+	
+	public void SpawnCountInAreas(int count, SpawnArea[] areas) {
+		for(var i = 0; i < count; i++) {
 			var go = (GameObject)GameObject.Instantiate(m_barrelPrefab);
-			go.transform.position = new Vector3(Random.Range (-30, 30), 0, Random.Range (-30, 30));
-			m_barrels.Add (go.GetComponent<Barrel>());
+			go.transform.position = GetSpawnPoint(areas);
+			var barrel = go.GetComponent<Barrel>();
+			m_barrels.Add (barrel);
 		}
 	}
 	
+	void FixedUpdate() {
+		m_hud.SetRemainingCount(m_fish.Count);
+	}
+	
+	Vector3 GetSpawnPoint(SpawnArea[] areas) {
+		var randomSpawn = areas[Random.Range (0, areas.Length)];
+		var pos = randomSpawn.GetRandomPoint();
+		return pos;
+	}
+	
 	public void AddFish(GameObject fish) {
-		m_fish.Add (fish);
+		if(!m_fish.Contains(fish)) {
+			m_fish.Add (fish);
+		}
 		m_hud.SetRemainingCount(m_fish.Count);
 	}
 	
