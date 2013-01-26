@@ -2,23 +2,13 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Level02DieStep : MonoBehaviour, MissionStep {
+public class Level03DieStep : MonoBehaviour, MissionStep {
 	bool m_complete = false;
 	public MissionTracker m_tracker;
 	public HUD m_hud;
 	
-	public List<GameObject> m_deathSquad;
-	
 	public void OnStart() {
-		m_hud.SetObjectiveLabel("Turn around");
-		StartCoroutine(SpawnDeathSquad());
-	}
-	
-	IEnumerator SpawnDeathSquad() {
-		yield return new WaitForSeconds(0.66f);
-		foreach(var go in m_deathSquad) {
-			go.SetActive(true);
-		}
+		m_hud.SetObjectiveLabel("Be Vaporized");
 	}
 	
 	public void CheckRequirements() {
@@ -33,7 +23,7 @@ public class Level02DieStep : MonoBehaviour, MissionStep {
 	
 	public void OnCompletion() {
 		m_complete = true;
-		StartCoroutine(LoadLevelAfterDelay(2.0f, "level 3"));
+		StartCoroutine(LoadLevelAfterDelay(2.0f, "game over"));
 	}
 	
 	IEnumerator LoadLevelAfterDelay(float delay, string level) {

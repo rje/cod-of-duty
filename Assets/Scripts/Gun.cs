@@ -28,6 +28,12 @@ public class Gun : MonoBehaviour {
 		m_reloadPosition = new Vector3(m_defaultPosition.x, m_defaultPosition.y - 0.5f, m_defaultPosition.z);
 	}
 	
+	public void ResetChecks() {
+		m_firing = false;
+		m_hasFired = false;
+		m_reloading = false;
+	}
+	
 	public void TryToReload() {
 		StartCoroutine(Reload());
 	}

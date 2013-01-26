@@ -1,6 +1,18 @@
 v1 TODO:
-* Main Menu
-* Level Layout
+* Finish Game Over Sequence
+* Gibs on death cod
+* Loot on death cod
+* SFX
+* Pause menu
+* Fix Jump
+* Fix rocket shot delay
+* Increase rocket damage
+* Fix deactivating cod on nuke story
+* Disable player controls during mother cod fly-in
+* Scale in/scale out anim for story box?
+* Fix run speed in lvl 2
+* Hit effects on mother cod
+* Longer delay after nuke to game over
 
 v1 Done:
 * Rocket Launcher
@@ -17,3 +29,5 @@ v1 Done:
 * Swimming Fish
 * Ammo
 * Reload
+* Level Layout
+* Main Menu

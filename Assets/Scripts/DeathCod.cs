@@ -9,12 +9,14 @@ public class DeathCod : MonoBehaviour {
 	public Gun m_gun;
 	public int m_hp;
 	
+	public bool m_stopAttacking;
+	
 	public Transform m_raycastPoint;
 	
 	bool m_dead = false;
 	
 	void Start() {	
-		AddToLevel();;
+		AddToLevel();
 	}
 	
 	public void AddToLevel() {
@@ -24,6 +26,9 @@ public class DeathCod : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(m_stopAttacking) {
+			return;
+		}
 		var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 		var ray = new Ray(m_raycastPoint.position, (player.transform.position + player.transform.up) - m_raycastPoint.position);
 		Debug.DrawRay(m_raycastPoint.position, (player.transform.position + player.transform.up) - m_raycastPoint.position);
@@ -53,7 +58,11 @@ public class DeathCod : MonoBehaviour {
 	}
 	
 	void TryToFire() {
-		var ray = new Ray(m_gun.m_muzzleExit.transform.position, m_gun.m_muzzleExit.transform.forward);
+		var offset = Random.Range (-0.1f, 0.1f) * m_gun.m_muzzleExit.transform.right +
+					 Random.Range (-0.1f, 0.1f) * m_gun.m_muzzleExit.transform.up;
+		var direction = offset + m_gun.m_muzzleExit.transform.forward;
+		direction.Normalize();
+		var ray = new Ray(m_gun.m_muzzleExit.transform.position, direction);
 		m_gun.TryToFire(ray);
 	}
 	

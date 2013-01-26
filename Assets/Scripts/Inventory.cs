@@ -109,6 +109,7 @@ public class Inventory : MonoBehaviour {
 	
 	void EnableGun(int idx) {
 		m_activeGuns[idx].m_gunGameObject.SetActive (true);
+		m_activeGuns[idx].m_gun.ResetChecks();
 	}
 	
 	public GunInfo GetCurrentGun() {

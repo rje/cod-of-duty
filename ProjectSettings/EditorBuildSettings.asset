@@ -11,3 +11,7 @@ EditorBuildSettings:
     path: Assets/Scenes/level 1.unity
   - enabled: 1
     path: Assets/Scenes/level 2.unity
+  - enabled: 1
+    path: Assets/Scenes/level 3.unity
+  - enabled: 1
+    path: Assets/Scenes/game over.unity

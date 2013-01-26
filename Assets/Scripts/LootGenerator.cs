@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class LootGenerator : MonoBehaviour {
 	public List<GameObject> m_lootPrefabs;
 	public float m_lootChance;
+	public List<float> m_odds;
 	
 	static LootGenerator sm_instance;
 	
@@ -16,13 +17,17 @@ public class LootGenerator : MonoBehaviour {
 	}
 	
 	GameObject GetRandomPrefab() {
-		/*
 		if(Random.Range (0.0f, 1.0f) <= m_lootChance) {
-			return m_lootPrefabs[Random.Range (0, m_lootPrefabs.Count)];
+			var rand = Random.Range (0.0f, 1.0f);
+			var counter = 0.0f;
+			for(var i = 0; i < m_odds.Count; i++) {
+				counter += m_odds[i];
+				if(rand <= counter) {
+					return m_lootPrefabs[i];
+				}
+			}
 		}
-		*/
-		return m_lootPrefabs[2];
-		//return null;
+		return null;
 	}
 	
 	public static GameObject GetLoot() {

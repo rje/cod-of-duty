@@ -984,6 +984,10 @@ MonoBehaviour:
   - {fileID: 100000, guid: 0295eb39f27fe4eb482fca200bf3c343, type: 2}
   - {fileID: 100004, guid: 4aef3eed13c414b7e9a647f7f9b03df0, type: 2}
   m_lootChance: .75
+  m_odds:
+  - .100000001
+  - .699999988
+  - .200000003
 --- !u!1 &42302902
 GameObject:
   m_ObjectHideFlags: 0

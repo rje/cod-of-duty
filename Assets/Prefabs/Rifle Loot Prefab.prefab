@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 135: {fileID: 13500000}
   - 54: {fileID: 5400000}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Rifle Loot Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400002}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: rifle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - 4: {fileID: 400004}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Cube.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 5}
+  m_LocalPosition: {x: -3.71568823, y: 0, z: 2.453058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
