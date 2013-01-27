@@ -23,5 +23,7 @@ public class Level01ShowReportStory : MonoBehaviour {
 	
 	void OnStoryClose() {
 		laptop.m_finished = true;
+		var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player.UnpauseAfterDelay(0.1f);
 	}
 }

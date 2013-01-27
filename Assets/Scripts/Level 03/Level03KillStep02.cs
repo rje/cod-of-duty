@@ -31,6 +31,8 @@ public class Level03KillStep02 : MonoBehaviour {
 		SpawnDeathCod();
 		SpawnBarrels();
 		m_doneWithStory = true;
+		var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player.UnpauseAfterDelay(0.1f);
 	}
 	
 	void SpawnDeathCod() {

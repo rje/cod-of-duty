@@ -40,7 +40,6 @@ public class Level03KillStep03 : MonoBehaviour, MissionStep {
 		playerGO.transform.rotation = rotation;
 		m_motherCod.animation.Play (m_motherCodLoopAnim);
 		m_doneWithStory = true;
-		player.UnpauseAfterDelay(0.1f);
 	}
 	
 	public void CheckRequirements() {

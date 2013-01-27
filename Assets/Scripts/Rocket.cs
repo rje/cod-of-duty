@@ -65,5 +65,6 @@ public class Rocket : MonoBehaviour {
 		var emitter = explosion.GetComponentInChildren<ParticleEmitter>();
 		emitter.Emit (300);
 		Destroy (gameObject);
+		Destroy (explosion, 3.0f);
 	}
 }

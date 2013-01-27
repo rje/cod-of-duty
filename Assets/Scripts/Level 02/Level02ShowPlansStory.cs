@@ -21,6 +21,6 @@ public class Level02ShowPlansStory: MonoBehaviour {
 	void OnStoryClose() {
 		laptop.m_finished = true;
 		var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-		player.m_pauseInput = false;
+		player.UnpauseAfterDelay(0.1f);
 	}
 }

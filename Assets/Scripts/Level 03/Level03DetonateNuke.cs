@@ -37,6 +37,8 @@ public class Level03DetonateNuke : MonoBehaviour, MissionStep {
 	void DoneWithStory() {
 		m_laptop.m_usable = true;
 		m_doneWithStory = true;
+		var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player.UnpauseAfterDelay(0.1f);
 		StopMotherAttacking(false);
 		StopDeathCodAttacking(false);
 	}

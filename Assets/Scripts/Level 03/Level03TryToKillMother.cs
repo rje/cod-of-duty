@@ -9,6 +9,7 @@ public class Level03TryToKillMother : MonoBehaviour, MissionStep {
 	public StoryHUD m_storyHud;
 	public string m_storyText;
 	
+	public Player m_player;
 	public LevelInit m_level;
 	public MotherCod m_motherCod;
 	
@@ -26,6 +27,7 @@ public class Level03TryToKillMother : MonoBehaviour, MissionStep {
 	
 	void DoneWithStory() {
 		m_doneWithStory = true;
+		m_player.UnpauseAfterDelay(0.1f);
 	}
 	
 	public void CheckRequirements() {

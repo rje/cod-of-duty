@@ -26,10 +26,14 @@ public class LevelInit : MonoBehaviour {
 		m_storyHUD.Show ();
 	}
 	
+	void OnApplicationFocus(bool val) {
+		Init.RecaptureCursor();
+	}
+	
 	public void SpawnCountInAreas(int count, SpawnArea[] areas) {
 		for(var i = 0; i < count; i++) {
 			var go = (GameObject)GameObject.Instantiate(m_barrelPrefab);
-			go.transform.position = GetSpawnPoint(areas);
+			go.transform.position = GetSpawnPoint(areas) + new Vector3(0, 0.1f, 0);
 			var barrel = go.GetComponent<Barrel>();
 			m_barrels.Add (barrel);
 		}

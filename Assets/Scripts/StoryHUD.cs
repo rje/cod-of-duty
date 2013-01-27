@@ -26,10 +26,12 @@ public class StoryHUD : MonoBehaviour {
 		yield return new WaitForSeconds(0.33f);
 		Init.HideCursor();
 		gameObject.SetActive(false);
-		GetPlayer ().m_pauseInput = false;
 		StartTrackerIfNecessary();
 		if(m_toNotifyOnDismissal != null) {
 			m_toNotifyOnDismissal.SendMessage(m_method);
+		}
+		else {		
+			GetPlayer ().UnpauseAfterDelay(0.1f);
 		}
 	}
 	
