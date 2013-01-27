@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\DeathCod.cs" />
      <Compile Include="Assets\Scripts\FacePlayer.cs" />
      <Compile Include="Assets\Scripts\FadeOnPlayerDistance.cs" />
+     <Compile Include="Assets\Scripts\GameOverMenu.cs" />
      <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\HUD.cs" />
      <Compile Include="Assets\Scripts\HealthEffect.cs" />
@@ -79,10 +80,12 @@
      <Compile Include="Assets\Scripts\MessageButton.cs" />
      <Compile Include="Assets\Scripts\MissionTracker.cs" />
      <Compile Include="Assets\Scripts\MotherCod.cs" />
+     <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Rocket.cs" />
      <Compile Include="Assets\Scripts\Shootable.cs" />
      <Compile Include="Assets\Scripts\SpawnArea.cs" />
+     <Compile Include="Assets\Scripts\Spin.cs" />
      <Compile Include="Assets\Scripts\StoryHUD.cs" />
      <Compile Include="Assets\Scripts\UseTrigger.cs" />
      <None Include="Assets\TODO.txt" />

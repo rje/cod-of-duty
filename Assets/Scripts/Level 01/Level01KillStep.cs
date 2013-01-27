@@ -7,7 +7,7 @@ public class Level01KillStep : MonoBehaviour, MissionStep {
 	public HUD m_hud;
 	
 	public void OnStart() {
-		m_hud.SetObjectiveLabel("Lure the enemy out");
+		m_hud.SetObjectiveLabel("Leave no fish alive");
 	}
 	
 	public void CheckRequirements() {

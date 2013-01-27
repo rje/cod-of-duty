@@ -30,7 +30,7 @@ public class Barrel : MonoBehaviour {
 		for(var i = m_fish.Count - 1; i >= 0; i--) {
 			var fishGO = m_fish[i];
 			var shootable = fishGO.GetComponentInChildren<Shootable>();
-			shootable.ShotBy (shooter, 5);
+			shootable.ShotBy (shooter, shootable.gameObject.transform.position, 5);
 			RemoveFish(fishGO);
 		}
 		Destroy (gameObject, 0.3f);

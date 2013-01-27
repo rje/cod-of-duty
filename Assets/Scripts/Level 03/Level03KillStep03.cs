@@ -27,17 +27,20 @@ public class Level03KillStep03 : MonoBehaviour, MissionStep {
 	IEnumerator DoneWithStory() {
 		m_motherCod.SetActive(true);
 		m_motherCod.animation.Play (m_motherCodAnim);
-		var player = GameObject.FindGameObjectWithTag("Player");
+		var playerGO = GameObject.FindGameObjectWithTag("Player");
+		var player = playerGO.GetComponent<Player>();
+		player.m_pauseInput = true;
 		var time = 0.0f;
 		var rotation = player.transform.rotation;
 		while(time < 10.0f) {
 			time += Time.deltaTime;
-			player.transform.LookAt(m_motherCod.transform.position);
+			playerGO.transform.LookAt(m_motherCod.transform.position);
 			yield return null;
 		}
-		player.transform.rotation = rotation;
+		playerGO.transform.rotation = rotation;
 		m_motherCod.animation.Play (m_motherCodLoopAnim);
 		m_doneWithStory = true;
+		player.UnpauseAfterDelay(0.1f);
 	}
 	
 	public void CheckRequirements() {

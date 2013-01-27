@@ -1,22 +1,28 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/TODO.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Level 03/Level03DetonateNuke.cs">
     <Files>
-      <File FileName="Assets/Scripts/Level 03/Level03KillStep01.cs" Line="4" Column="62" />
-      <File FileName="Assets/Scripts/Level 03/Level03KillStep02.cs" Line="33" Column="26" />
-      <File FileName="Assets/Scripts/StoryHUD.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/DeathCod.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Level 03/Level03KillStep03.cs" Line="53" Column="3" />
-      <File FileName="Assets/Scripts/Level 03/Level03TryToKillMother.cs" Line="45" Column="1" />
-      <File FileName="Assets/Scripts/MotherCod.cs" Line="13" Column="14" />
-      <File FileName="Assets/Scripts/Level 03/Level03DieStep.cs" Line="34" Column="1" />
-      <File FileName="Assets/Scripts/Level 03/Level03CallInNuke.cs" Line="39" Column="3" />
-      <File FileName="Assets/Scripts/Level 03/Level03DetonateNuke.cs" Line="20" Column="24" />
-      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Inventory.cs" Line="1" Column="1" />
+      <File FileName="Assets/TODO.txt" Line="29" Column="28" />
       <File FileName="Assets/Scripts/Gun.cs" Line="1" Column="1" />
-      <File FileName="Assets/TODO.txt" Line="20" Column="14" />
-      <File FileName="Assets/Scripts/Level 02/Level02DieStep.cs" Line="36" Column="52" />
+      <File FileName="Assets/Scripts/Rocket.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Inventory.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UseTrigger.cs" Line="34" Column="3" />
+      <File FileName="Assets/Scripts/Level 03/Level03CallInNuke.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameOverMenu.cs" Line="9" Column="3" />
+      <File FileName="Assets/Scripts/Button.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MessageButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PauseMenu.cs" Line="27" Column="22" />
+      <File FileName="Assets/Scripts/Loot.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level 01/Level01ReportStep.cs" Line="11" Column="48" />
+      <File FileName="Assets/Scripts/Level 01/Level01KillStep.cs" Line="10" Column="47" />
+      <File FileName="Assets/Scripts/Level 02/Level02KillStep1.cs" Line="10" Column="47" />
+      <File FileName="Assets/Scripts/Level 02/Level02KillStep2.cs" Line="15" Column="57" />
+      <File FileName="Assets/Scripts/Level 03/Level03KillStep01.cs" Line="11" Column="45" />
+      <File FileName="Assets/Scripts/Level 03/Level03KillStep02.cs" Line="23" Column="41" />
+      <File FileName="Assets/Scripts/Level 03/Level03KillStep03.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level 03/Level03TryToKillMother.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level 03/Level03DetonateNuke.cs" Line="27" Column="32" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

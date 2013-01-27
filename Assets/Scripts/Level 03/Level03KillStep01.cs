@@ -8,7 +8,7 @@ public class Level03KillStep01 : MonoBehaviour, MissionStep {
 	public HUD m_hud;
 	
 	public void OnStart() {
-		m_hud.SetObjectiveLabel("Stop the invasion");
+		m_hud.SetObjectiveLabel("Gut you some fish");
 	}
 	
 	public void CheckRequirements() {

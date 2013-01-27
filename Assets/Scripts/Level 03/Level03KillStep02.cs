@@ -20,7 +20,7 @@ public class Level03KillStep02 : MonoBehaviour {
 	
 	
 	public void OnStart() {
-		m_hud.SetObjectiveLabel("Stop the invasion");
+		m_hud.SetObjectiveLabel("Gut more fish");
 		m_storyHud.m_storyText.text = m_storyText;
 		m_storyHud.m_toNotifyOnDismissal = gameObject;
 		m_storyHud.m_method = "DoneWithStory";

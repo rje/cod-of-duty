@@ -22,6 +22,8 @@ public class Gun : MonoBehaviour {
 	Vector3 m_defaultPosition;
 	Vector3 m_reloadPosition;
 	
+	public AudioSource m_audio;
+	
 	void Start() {
 		m_currentAmmo = m_ammoCapacity;
 		m_defaultPosition = transform.localPosition;
@@ -59,6 +61,7 @@ public class Gun : MonoBehaviour {
 		bullet.transform.position = m_muzzleExit.transform.position;
 		bullet.transform.rotation = m_muzzleExit.transform.rotation;
 		bullet.GetComponent<Rocket>().m_player = m_player;
+		m_audio.Play();
 		
 		if(m_shotDelay > 0) {
 			yield return new WaitForSeconds(m_shotDelay);
@@ -92,11 +95,12 @@ public class Gun : MonoBehaviour {
 		bullet.transform.localRotation = Quaternion.identity;
 		lr.SetPosition(1, bullet.transform.InverseTransformPoint(dest));
 		lr.SetVertexCount(2);
+		m_audio.Play();
 		
 		yield return new WaitForSeconds(0.1f);
 		
 		if(target != null) {
-			target.ShotBy(m_player == null ? gameObject : m_player.gameObject, m_damage);
+			target.ShotBy(m_player == null ? gameObject : m_player.gameObject, rh.point, m_damage);
 		}
 		
 		Destroy(bullet);
@@ -114,8 +118,8 @@ public class Gun : MonoBehaviour {
 		}
 		m_reloading = true;
 		transform.localPosition = m_reloadPosition;
-		yield return new WaitForSeconds(0.33f);
 		m_player.m_inventory.ReloadCurrentGun();
+		yield return new WaitForSeconds(0.8f);
 		transform.localPosition = m_defaultPosition;
 		m_reloading = false;
 	}

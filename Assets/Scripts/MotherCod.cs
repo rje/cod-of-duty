@@ -12,6 +12,8 @@ public class MotherCod : MonoBehaviour {
 	public int m_spawnHpThreshold;
 	public bool m_stopAttacking;
 	
+	public ParticleEmitter m_blood;
+	
 	float m_timeSinceSpawn;
 	
 	void Start() {
@@ -20,6 +22,8 @@ public class MotherCod : MonoBehaviour {
 
 	void OnShotBy(ShotInfo si) {
 		m_hp -= si.m_damage;
+		m_blood.transform.position = si.m_location;
+		m_blood.Emit (30);
 	}
 	
 	void FixedUpdate() {

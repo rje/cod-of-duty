@@ -9,6 +9,8 @@ public class DeathCod : MonoBehaviour {
 	public Gun m_gun;
 	public int m_hp;
 	
+	public ParticleEmitter[] m_emitters;
+	
 	public bool m_stopAttacking;
 	
 	public Transform m_raycastPoint;
@@ -83,7 +85,24 @@ public class DeathCod : MonoBehaviour {
 	void Die() {
 		var level = GameObject.FindGameObjectWithTag("Level").GetComponent<LevelInit>();
 		level.RemoveFish(gameObject);
-		Destroy(gameObject);
+		foreach(var emitter in m_emitters) {
+			emitter.Emit (Random.Range (30, 60));
+			emitter.transform.parent = null;
+			GameObject.Destroy (emitter.gameObject, 2.5f);
+		}
+		
+		GenerateLoot();
+		
+		Destroy (gameObject);
+	}
+	
+	void GenerateLoot() {
+		var toSpawn = LootGenerator.GetLoot();
+		if(toSpawn != null) {
+			var spawned = (GameObject)GameObject.Instantiate(toSpawn);
+			spawned.transform.position = transform.position + new Vector3(Random.Range (-2, 2), 0, Random.Range (-2, 2));
+			spawned.GetComponent<Loot>().ApplyForce();
+		}
 	}
 	
 	void MoveForward() {

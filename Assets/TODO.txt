@@ -1,18 +1,5 @@
 v1 TODO:
-* Finish Game Over Sequence
-* Gibs on death cod
-* Loot on death cod
-* SFX
-* Pause menu
-* Fix Jump
-* Fix rocket shot delay
-* Increase rocket damage
-* Fix deactivating cod on nuke story
-* Disable player controls during mother cod fly-in
-* Scale in/scale out anim for story box?
-* Fix run speed in lvl 2
-* Hit effects on mother cod
-* Longer delay after nuke to game over
+* Nuke Entry SFX
 
 v1 Done:
 * Rocket Launcher
@@ -31,3 +18,30 @@ v1 Done:
 * Reload
 * Level Layout
 * Main Menu
+
+* Gibs on death cod
+* Loot on death cod
+* Fix run speed in lvl 2
+* Longer delay after nuke to game over
+* Disable player controls during mother cod fly-in
+* Fix rocket shot delay
+* Increase rocket damage
+* Hit effects on mother cod
+* Fix Jump
+* Fix deactivating cod on nuke story
+* Nuke model
+* World edges for town
+* Scale in/scale out anim for story box?
+* Pause menu
+* Exit
+* Finish Game Over Sequence
+* Pistol SFX - done
+* Rifle SFX - done
+* Rocket launch SFX - done
+* Rocket impact SFX - done
+* Reload SFX - done
+* Footfall SFX - done
+* Hit SFX - done
+* Nuke Explosion SFX - done
+* Button SFX - done
+* Jet SFX - done

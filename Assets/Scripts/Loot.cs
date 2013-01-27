@@ -6,6 +6,7 @@ public class Loot : MonoBehaviour {
 	public GunType m_type;
 	public int m_ammoCount;
 	public float m_rotationSpeed;
+	public AudioClip m_sound;
 	
 	float m_angle;
 	
@@ -25,6 +26,7 @@ public class Loot : MonoBehaviour {
 	void OnCollisionEnter(Collision collision) {
 		var inventory = collision.gameObject.GetComponent<Inventory>();
 		if(inventory != null) {
+			AudioSource.PlayClipAtPoint(m_sound, transform.position);
 			inventory.GotLoot(m_type, m_ammoCount);
 			Destroy (gameObject);
 		}

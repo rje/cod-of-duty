@@ -42,6 +42,9 @@ public class Inventory : MonoBehaviour {
 	public List<GunInfo> m_activeGuns;
 	public int m_currentIndex;
 	
+	public AudioSource m_source;
+	public AudioClip m_reloadClip;
+	
 	void Awake() {
 		ResetInventory();
 	}
@@ -108,6 +111,7 @@ public class Inventory : MonoBehaviour {
 	}
 	
 	void EnableGun(int idx) {
+		m_source.PlayOneShot(m_reloadClip);
 		m_activeGuns[idx].m_gunGameObject.SetActive (true);
 		m_activeGuns[idx].m_gun.ResetChecks();
 	}
@@ -117,6 +121,7 @@ public class Inventory : MonoBehaviour {
 	}
 	
 	public void ReloadCurrentGun() {
+		m_source.PlayOneShot(m_reloadClip);
 		GetCurrentGun().Reload();
 	}
 }

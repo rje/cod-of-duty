@@ -8,6 +8,8 @@ public class Level02ShowPlansStory: MonoBehaviour {
 	public UseTrigger laptop;
 
 	public void ShowStory(GameObject caller) {
+		var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player.m_pauseInput = true;
 		laptop = caller.GetComponent<UseTrigger>();
 		laptop.m_usable = false;
 		m_hud.m_storyText.text = m_storyText;
@@ -18,5 +20,7 @@ public class Level02ShowPlansStory: MonoBehaviour {
 	
 	void OnStoryClose() {
 		laptop.m_finished = true;
+		var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player.m_pauseInput = false;
 	}
 }

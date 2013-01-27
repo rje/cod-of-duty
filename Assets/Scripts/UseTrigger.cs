@@ -11,13 +11,25 @@ public class UseTrigger : MonoBehaviour {
 	public GameObject m_toNotify;
 	public string m_message;
 	
+	public GameObject m_indicator;
+	
+	public AudioClip m_useSound;
+	
 	void FireUse() {
+		if(m_useSound != null) {
+			AudioSource.PlayClipAtPoint(m_useSound, transform.position);
+		}
 		m_toNotify.SendMessage(m_message, gameObject);
 	}
 
 	void Update() {
 		if(!m_inUse) {
 			CheckForUse();
+		}
+		if(m_indicator != null) {
+			if(m_indicator.activeSelf != m_usable) {
+				m_indicator.SetActive(m_usable);
+			}
 		}
 	}
 	

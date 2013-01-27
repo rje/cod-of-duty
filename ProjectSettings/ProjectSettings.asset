@@ -38,7 +38,7 @@ PlayerSettings:
   Override IPod Music: 0
   usePlayerLog: 1
   stripPhysics: 0
-  resizableWindow: 0
+  resizableWindow: 1
   useMacAppStoreValidation: 0
   xboxSkinOnGPU: 1
   xboxEnableAvatar: 0
@@ -96,11 +96,12 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   AndroidKeystoreName: 
   AndroidKeyaliasName: 
-  resolutionDialogBanner: {fileID: 0}
+  resolutionDialogBanner: {fileID: 2800000, guid: f05e2269bbcc54b76bed328e97a6b8a2,
+    type: 3}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 0}
+    - m_Icon: {fileID: 2800000, guid: 4edeb6dd9bd38410b83455d54b10b4ad, type: 3}
       m_Size: 128
   m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Default

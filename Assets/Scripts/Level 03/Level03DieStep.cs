@@ -23,7 +23,7 @@ public class Level03DieStep : MonoBehaviour, MissionStep {
 	
 	public void OnCompletion() {
 		m_complete = true;
-		StartCoroutine(LoadLevelAfterDelay(2.0f, "game over"));
+		StartCoroutine(LoadLevelAfterDelay(6.0f, "game over"));
 	}
 	
 	IEnumerator LoadLevelAfterDelay(float delay, string level) {

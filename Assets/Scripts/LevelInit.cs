@@ -12,6 +12,8 @@ public class LevelInit : MonoBehaviour {
 	
 	public SpawnArea[] m_spawns;
 	
+	public StoryHUD m_storyHUD;
+	
 	public HUD m_hud;
 	
 	float m_time;
@@ -21,6 +23,7 @@ public class LevelInit : MonoBehaviour {
 		m_barrels = new List<Barrel>();
 		m_fish = new List<GameObject>();
 		SpawnCountInAreas(m_numBarrels, m_spawns);
+		m_storyHUD.Show ();
 	}
 	
 	public void SpawnCountInAreas(int count, SpawnArea[] areas) {

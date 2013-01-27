@@ -10,7 +10,11 @@ public class Rocket : MonoBehaviour {
 	public GameObject m_explosionPrefab;
 	public Player m_player;
 	
+	public int m_damage;
+	
 	float m_time = 0;
+	
+	public AudioClip m_clip;
 	
 	void Start() {
 		rigidbody.AddForce(transform.forward * m_force);
@@ -29,6 +33,7 @@ public class Rocket : MonoBehaviour {
 	}
 	
 	void Explode() {
+		AudioSource.PlayClipAtPoint(m_clip, transform.position);
 		var explosion = (GameObject)GameObject.Instantiate(m_explosionPrefab);
 		explosion.transform.position = transform.position;
 		
@@ -48,7 +53,13 @@ public class Rocket : MonoBehaviour {
 			}
 			var deathCod = rootGO.GetComponent<DeathCod>();
 			if(deathCod != null) {
-				rootGO.GetComponent<Shootable>().ShotBy(m_player.gameObject, 5);
+				rootGO.GetComponent<Shootable>().ShotBy(m_player.gameObject, deathCod.transform.position, m_damage);
+			}
+			
+			var motherCod = rootGO.GetComponent<MotherCod>();
+			if(motherCod != null) {
+				var pos = collider.ClosestPointOnBounds(transform.position);
+				collider.gameObject.GetComponent<Shootable>().ShotBy (m_player.gameObject, pos, m_damage);
 			}
 		}
 		var emitter = explosion.GetComponentInChildren<ParticleEmitter>();

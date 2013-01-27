@@ -10,11 +10,20 @@ public class StoryHUD : MonoBehaviour {
 	public GameObject m_toNotifyOnDismissal;
 	public string m_method;
 	
+	public string m_inAnim;
+	public string m_outAnim;
+	
 	void Start() {
 		Show ();
 	}
 	
 	void Dismiss() {
+		StartCoroutine(DoDismissal());
+	}
+	
+	IEnumerator DoDismissal() {
+		animation.Play (m_outAnim);
+		yield return new WaitForSeconds(0.33f);
 		Init.HideCursor();
 		gameObject.SetActive(false);
 		GetPlayer ().m_pauseInput = false;
@@ -27,6 +36,7 @@ public class StoryHUD : MonoBehaviour {
 	public void Show() {
 		Init.ShowCursor();
 		gameObject.SetActive(true);
+		animation.Play (m_inAnim);
 		GetPlayer ().m_pauseInput = true;
 	}
 	

@@ -25,6 +25,12 @@ public class Player : MonoBehaviour {
 	public HealthEffect m_health;
 	public bool m_isDead = false;
 	
+	public bool m_isGrounded = true;
+	public bool m_leftGround = false;
+	
+	public AudioSource m_source;
+	public AudioClip m_hurtClip;
+	
 	HUD m_hud;
 
 	// Use this for initialization
@@ -93,15 +99,28 @@ public class Player : MonoBehaviour {
 	}
 	
 	void UpdatePosition() {
+		bool isMoving = false;
 		var strafe = Input.GetAxisRaw ("Horizontal");
 		var forward = Input.GetAxisRaw ("Vertical");
 		var moveVec = (strafe * transform.right) + (forward * transform.forward);
 		moveVec.Normalize();
 		moveVec = moveVec * m_speed * Time.deltaTime;
+		if(moveVec.magnitude > 0.01f) {
+			isMoving = true;
+		}
+		
+		if(isMoving && !m_source.isPlaying) {
+			m_source.Play ();
+		}
+		else if(!isMoving && m_source.isPlaying) {
+			m_source.Stop ();
+		}
 		
 		transform.position += moveVec;
 		
-		if(Input.GetButtonDown ("Jump")) {
+		if(Input.GetButtonDown ("Jump") && m_isGrounded && !m_leftGround) {
+			m_isGrounded = false;
+			m_leftGround = false;
 			rigidbody.AddForce(transform.up * m_jumpForce);
 		}
 	}
@@ -131,6 +150,7 @@ public class Player : MonoBehaviour {
 		m_hp -= si.m_damage;
 		m_hp = Mathf.Clamp (m_hp, 0, m_maxHP);
 		m_sinceLastShot = 0;
+		AudioSource.PlayClipAtPoint(m_hurtClip, transform.position);
 		if(m_hp == 0 && !m_isDead) {
 			Die(si.m_shooter);
 		}
@@ -147,5 +167,25 @@ public class Player : MonoBehaviour {
 	IEnumerator FreezeAfterDelay(float delay) {
 		yield return new WaitForSeconds(delay);
 		rigidbody.Sleep();
+	}
+	
+	void OnCollisionStay(Collision c) {
+		if(m_leftGround) {
+			m_isGrounded = true;
+			m_leftGround = false;
+		}
+	}
+	
+	void OnCollisionExit(Collision c) {
+		m_leftGround = true;
+	}
+	
+	public void UnpauseAfterDelay(float delay) {
+		StartCoroutine(DelayedUnpause(delay));
+	}
+	
+	IEnumerator DelayedUnpause(float delay) {
+		yield return new WaitForSeconds(delay);
+		m_pauseInput = false;
 	}
 }

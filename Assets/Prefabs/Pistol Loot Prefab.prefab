@@ -138,6 +138,7 @@ MonoBehaviour:
   m_type: 0
   m_ammoCount: 30
   m_rotationSpeed: 360
+  m_sound: {fileID: 8300000, guid: d55f71c97abb24f7fa0ee5230e04696b, type: 3}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

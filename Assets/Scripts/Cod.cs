@@ -39,7 +39,7 @@ public class Cod : MonoBehaviour {
 		foreach(var emitter in m_emitters) {
 			emitter.Emit (Random.Range (30, 60));
 			emitter.transform.parent = null;
-			Destroy (emitter, 2.5f);
+			GameObject.Destroy (emitter.gameObject, 2.5f);
 		}
 		m_barrel.RemoveFish(gameObject);
 		

@@ -43,7 +43,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400004}
-  - 95: {fileID: 9500000}
   - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
   - 54: {fileID: 5400000}
@@ -226,18 +225,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .0500000007, y: .0500000007, z: .200000003}
   m_Center: {x: 0, y: 0, z: -.0199999996}
---- !u!95 &9500000
-Animator:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100004}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: eaac14ffa06354e75bf2f7d060289367, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_ApplyRootMotion: 1
-  m_AnimatePhysics: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -253,6 +240,8 @@ MonoBehaviour:
   m_explosionRadius: 3
   m_explosionPrefab: {fileID: 100002, guid: f2ecaec20f7254160b00c79ff211b482, type: 2}
   m_player: {fileID: 0}
+  m_damage: 15
+  m_clip: {fileID: 8300000, guid: 9a6e2f3ae091f4a148075b89c4cad89d, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

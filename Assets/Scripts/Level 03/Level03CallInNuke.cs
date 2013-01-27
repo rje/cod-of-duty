@@ -9,6 +9,7 @@ public class Level03CallInNuke : MonoBehaviour {
 	public Transform m_nukeStart;
 	public UseTrigger m_laptop;
 	public ParticleEmitter m_nukesplosion;
+	public AudioClip m_nukeSound;
 
 	IEnumerator CallInNuke() {
 		DisableMother();
@@ -28,6 +29,7 @@ public class Level03CallInNuke : MonoBehaviour {
 			yield return null;
 		}
 		ExplodeNuke();
+		AudioSource.PlayClipAtPoint(m_nukeSound, m_nukeDest.position);
 		Destroy (nuke);
 		yield return new WaitForSeconds(1.0f);
 		m_player.m_isDead = true;

@@ -20,8 +20,6 @@ public class Level03DetonateNuke : MonoBehaviour, MissionStep {
 		m_storyHud.m_toNotifyOnDismissal = gameObject;
 		m_storyHud.m_method = "DoneWithStory";
 		m_storyHud.Show();
-		StopMotherAttacking(false);
-		StopDeathCodAttacking(false);
 	}
 	
 	void StopMotherAttacking(bool val) {
@@ -39,6 +37,8 @@ public class Level03DetonateNuke : MonoBehaviour, MissionStep {
 	void DoneWithStory() {
 		m_laptop.m_usable = true;
 		m_doneWithStory = true;
+		StopMotherAttacking(false);
+		StopDeathCodAttacking(false);
 	}
 	
 	public void CheckRequirements() {

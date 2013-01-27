@@ -12,7 +12,7 @@ public class Level02KillStep2 : MonoBehaviour {
 	public int m_spawnCount;
 	
 	public void OnStart() {
-		m_hud.SetObjectiveLabel("Cast the net");
+		m_hud.SetObjectiveLabel("Kill all fish in the barracks");
 		foreach(var fish in m_fishToActivate) {
 			fish.SetActive(true);
 			fish.GetComponent<DeathCod>().AddToLevel();

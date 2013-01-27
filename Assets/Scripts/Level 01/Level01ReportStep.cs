@@ -8,7 +8,7 @@ public class Level01ReportStep : MonoBehaviour, MissionStep {
 	public UseTrigger m_laptop;
 	
 	public void OnStart() {
-		m_hud.SetObjectiveLabel("Report back to base");
+		m_hud.SetObjectiveLabel("Use laptop to report back to base");
 		m_laptop.m_usable = true;
 	}
 	
