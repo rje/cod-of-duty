@@ -77,7 +77,7 @@ public class DeathCod : MonoBehaviour {
 	
 	void FacePlayer(Player p) {
 		var toLookAt = p.transform.position;
-		toLookAt.y -= 0.33f;
+		toLookAt.y += 0.33f;
 		transform.LookAt(toLookAt);
 		transform.Rotate(0, 180, 0);
 	}

@@ -134,8 +134,9 @@ public class Player : MonoBehaviour {
 	}
 	
 	void UpdateHeadRotation(Vector3 delta) {
+		float invertY = PlayerPrefs.GetInt("y-axis-invert");
 		var headAngles = m_head.localRotation.eulerAngles;
-		m_currentHeadAngle -= delta.y / m_mouseSensitivity;
+		m_currentHeadAngle -= invertY * delta.y / m_mouseSensitivity;
 		if(m_currentHeadAngle < m_headMin) {
 			m_currentHeadAngle = m_headMin;
 		}

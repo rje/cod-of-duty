@@ -10,8 +10,8 @@ PlayerSettings:
   targetGlesGraphics: 1
   targetResolution: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: january
+  companyName: Ryan Evans
+  productName: CoD of Duty
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   defaultScreenWidth: 1280
@@ -104,7 +104,7 @@ PlayerSettings:
     - m_Icon: {fileID: 2800000, guid: 4edeb6dd9bd38410b83455d54b10b4ad, type: 3}
       m_Size: 128
   m_BuildTargetBatching: []
-  webPlayerTemplate: APPLICATION:Default
+  webPlayerTemplate: PROJECT:rjevans.net
   m_TemplateCustomTags: {}
   wiiRegion: 1
   wiiGameCode: RABA

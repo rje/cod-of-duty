@@ -24,6 +24,10 @@ public class LevelInit : MonoBehaviour {
 		m_fish = new List<GameObject>();
 		SpawnCountInAreas(m_numBarrels, m_spawns);
 		m_storyHUD.Show ();
+		if(!PlayerPrefs.HasKey("y-axis-invert")) {
+			PlayerPrefs.SetInt("y-axis-invert", 1);
+			PlayerPrefs.Save();
+		}
 	}
 	
 	void OnApplicationFocus(bool val) {
